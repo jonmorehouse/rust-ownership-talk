@@ -1,0 +1,132 @@
+Ownership in Rust
+an introduction for non-rustaceans!
+
+Jon Morehouse
+a computer obsessed geek
+@jonmorehouse
+@buzzfeed
+
+* Who am I?
+
+- systems engineering at BuzzFeed
+
+* Who am I?
+
+- systems engineering at BuzzFeed
+- weekend rustacean
+
+* Who am I?
+
+- systems engineering at BuzzFeed
+- weekend rustacean (for now)
+- building `rust-nsq`
+
+* Rust (lang)
+
+.image images/rust_logo.png
+
+* Buzz words, buzz words everywhere!
+
+# buzz light year emoji
+
+* Buzz words (Rust Edition)
+
+- Ownership
+- Lifetimes
+- Borrowing
+- Zero Cost Abstractions
+
+* Ownership / Borrowing / Lifetimes 
+
+# hard hat emoji and bring them on one at a time
+
+(safe) memory management
+(safe) memory sharing
+(safe) concurrency
+
+* The rust way
+
+manual, safe memory management
+
+* Zero Cost Abstractions
+
+compiler errors everywhere!
+
+* Buzzword driven development 
+
+but actually, why Rust?
+
+* Use cases
+
+- low level, memory constrained problems
+- mission critical - built on safety
+
+* Ownership
+
+- variables own data
+- variable scoping matters
+- assignment is important
+
+* RAII
+
+Resource Allocation is Initialization
+
+.code samples/raii.rs
+
+* Move Semantics
+
+- ownership is transferred, not shared
+
+* Move Semantics
+
+- ownership is transferred, not shared
+- removes ambiguity around when memory can be deallocated
+
+* What is wrong with this?
+
+.code samples/ownership.go
+
+how do you know when to deallocate things?
+
+- reference counting
+- garbage collection
+- runtime semantics
+
+.code samples/ownership.rs
+
+* If ownership is explicit, how is memory shared?
+
+* Borrow Semantics
+
+- controlled, explicit references to memory
+- scope is still important
+- mutability is important
+
+* _
+
+.code samples/borrow.rs
+
+* Scope
+
+- allocation order matters!
+- deallocation order matters!
+
+.code samples/lifetime_order.rs
+
+* Mutability Matters
+
+- mutability must be explicit
+
+* _ 
+
+.code samples/borrowed_mutable.rs
+
+* Mutable Borrows
+
+.code samples/iterator_mutability.rs
+
+* Lifetime 
+
+.code samples/lifetime.rs
+
+
