@@ -51,10 +51,9 @@ but actually, why Rust?
 
 * Ownership
 
-- variables own data
+- allocation / deallocation is explicit
 - variable scoping matters
 - assignment changes ownership
-
 
 * Move Semantics
 
@@ -71,8 +70,6 @@ but actually, why Rust?
 * an example in another language
 
 .code samples/ownership.go
-
-(compiles)
 
 * how do you know when to deallocate things?
 
