@@ -8,18 +8,9 @@ a computer obsessed geek
 
 * Who am I?
 
-- systems engineering at BuzzFeed
-
-* Who am I?
-
-- systems engineering at BuzzFeed
+- engineer @ BuzzFeed
 - weekend rustacean
-
-* Who am I?
-
-- systems engineering at BuzzFeed
-- weekend rustacean (for now)
-- building `rust-nsq`
+- hacking on rust-nsq
 
 * Rust (lang)
 
@@ -38,11 +29,9 @@ a computer obsessed geek
 
 * Ownership / Borrowing / Lifetimes 
 
-# hard hat emoji and bring them on one at a time
-
-(safe) memory management
-(safe) memory sharing
-(safe) concurrency
+- (safe) memory management
+- (safe) memory sharing
+- (safe) concurrency
 
 * The rust way
 
@@ -56,77 +45,87 @@ compiler errors everywhere!
 
 but actually, why Rust?
 
-* Use cases
-
-- low level, memory constrained problems
-- mission critical - built on safety
+- fast
+- safe
+- embeddable (FFI)
 
 * Ownership
 
 - variables own data
 - variable scoping matters
-- assignment is important
+- assignment changes ownership
 
-* RAII
-
-Resource Allocation is Initialization
-
-.code samples/raii.rs
 
 * Move Semantics
 
+- variables can own their memory
 - ownership is transferred, not shared
+- move your memory, lose your memory
 
-* Move Semantics
+* an example in Rust:
 
-- ownership is transferred, not shared
-- removes ambiguity around when memory can be deallocated
+.code samples/ownership.rs
+(doesn't compile)
+.code samples/ownership_error.rs
 
-* What is wrong with this?
+* an example in another language
 
 .code samples/ownership.go
 
-how do you know when to deallocate things?
+(compiles)
+
+* how do you know when to deallocate things?
+
+* in rust
+
+- Resource Allocation is Initialization (RAII)
+- scoping controls memory bounds
+- memory is deallocated in the order it is allocated
+
+* variable order matters
+
+.code samples/order.rs
+.code samples/order_error
+
+* other languages
 
 - reference counting
 - garbage collection
 - runtime semantics
 
-.code samples/ownership.rs
-
 * If ownership is explicit, how is memory shared?
 
 * Borrow Semantics
 
-- controlled, explicit references to memory
-- scope is still important
+a way to hand out a temporary reference
+
+- controlled and explicit
+- scope / lifetime matters
 - mutability is important
 
-* _
+* Borrow rules
 
-.code samples/borrow.rs
+- exactly one mutable reference
+- one or more immutable references
+- borrowed references can't outlive the owner
 
-* Scope
+.code samples/borrow.rs 
 
-- allocation order matters!
-- deallocation order matters!
+* Lifetime Semantics
 
-.code samples/lifetime_order.rs
+- a way to define how long data lives
+- implicit for some types
+- ownership / borrow rules
+- compile time concept
 
-* Mutability Matters
+* Lifetime rules
 
-- mutability must be explicit
-
-* _ 
-
-.code samples/borrowed_mutable.rs
-
-* Mutable Borrows
-
-.code samples/iterator_mutability.rs
-
-* Lifetime 
+- part of the type
+- used to ensure references live long enough relative to peers
+- thinking in scopes
 
 .code samples/lifetime.rs
+
+
 
 

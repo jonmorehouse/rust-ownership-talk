@@ -1,7 +1,10 @@
 fn main() {
+    let var: Box<i32> = Box::new(5i32);
     {
-        let owned: i32 = 5;
+        // take ownership of memory
+        let scoped_var = var;
     }
 
-    // owned no longer exists!
+    // var and its data no longer exists
+    println!("{}", var);
 }

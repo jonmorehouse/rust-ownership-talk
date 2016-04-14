@@ -1,5 +1,5 @@
 fn main() {
-    let a: i32 = 5; 
-    let b = 5;
+    let a = Box::new(5i32);
+    let b = a;
     let c = a;
 }
